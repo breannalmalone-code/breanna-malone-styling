@@ -1,0 +1,365 @@
+/* ============================================
+   BREANNA MALONE — Personal Stylist
+   Palette: cream, warm taupe, charcoal, gold
+   ============================================ */
+
+:root {
+  --cream:   #FAF7F2;
+  --warm:    #F0EAE0;
+  --taupe:   #C4B49A;
+  --gold:    #B89A6A;
+  --charcoal:#2C2C2C;
+  --mid:     #6B6057;
+  --white:   #FFFFFF;
+
+  --serif:   'Cormorant Garamond', Georgia, serif;
+  --sans:    'Jost', system-ui, sans-serif;
+
+  --max:     1180px;
+  --gutter:  clamp(1.5rem, 5vw, 4rem);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  color: var(--charcoal);
+  font-family: var(--sans);
+  font-weight: 300;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---- TYPOGRAPHY ---- */
+h1, h2, h3, blockquote { font-family: var(--serif); font-weight: 400; }
+
+h1 {
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--charcoal);
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.2;
+  color: var(--charcoal);
+  margin-bottom: 1.25rem;
+}
+
+h3 {
+  font-size: 1.35rem;
+  font-weight: 500;
+  margin-bottom: 0.6rem;
+}
+
+p { color: var(--mid); font-size: 1rem; }
+
+em { font-style: italic; }
+
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.center { text-align: center; }
+
+/* ---- BUTTONS ---- */
+.btn-primary {
+  display: inline-block;
+  padding: 0.9rem 2.4rem;
+  background: var(--charcoal);
+  color: var(--cream);
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s;
+}
+
+.btn-primary:hover {
+  background: var(--gold);
+  color: var(--white);
+}
+
+/* ---- NAV ---- */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(250, 247, 242, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(196, 180, 154, 0.25);
+}
+
+.nav-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 1.1rem var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wordmark {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--charcoal);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.nav-links a {
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mid);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active { color: var(--charcoal); }
+
+.nav-cta {
+  padding: 0.55rem 1.4rem;
+  border: 1px solid var(--charcoal);
+  color: var(--charcoal) !important;
+  transition: background 0.2s, color 0.2s !important;
+}
+
+.nav-cta:hover {
+  background: var(--charcoal) !important;
+  color: var(--cream) !important;
+}
+
+.nav-toggle { display: none; background: none; border: none; font-size: 1.4rem; cursor: pointer; color: var(--charcoal); }
+
+/* ---- HERO ---- */
+#hero {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding: calc(80px + 4rem) var(--gutter) 5rem;
+  background:
+    linear-gradient(160deg, var(--cream) 55%, var(--warm) 100%);
+}
+
+.hero-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  max-width: 780px;
+}
+
+.hero-inner h1 { margin-bottom: 1.5rem; }
+.hero-sub { font-size: 1.1rem; color: var(--mid); max-width: 520px; margin-bottom: 2.5rem; }
+
+/* ---- MARQUEE ---- */
+.marquee-wrap {
+  overflow: hidden;
+  background: var(--charcoal);
+  padding: 0.9rem 0;
+  white-space: nowrap;
+}
+
+.marquee-track {
+  display: inline-block;
+  animation: marquee 28s linear infinite;
+}
+
+.marquee-track span {
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--taupe);
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ---- ABOUT ---- */
+#about {
+  padding: 6rem var(--gutter);
+  background: var(--white);
+}
+
+.about-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.about-text h2 { margin-bottom: 1.5rem; }
+.about-text p { margin-bottom: 1rem; }
+
+.about-image-placeholder {
+  aspect-ratio: 4 / 5;
+  background: var(--warm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--taupe);
+  border: 1px dashed var(--taupe);
+}
+
+/* ---- SERVICES ---- */
+#services {
+  padding: 6rem var(--gutter);
+  background: var(--cream);
+}
+
+.services-inner { max-width: var(--max); margin: 0 auto; }
+.services-inner h2 { margin-bottom: 3rem; }
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: var(--warm);
+  border: 1px solid var(--warm);
+}
+
+.service-card {
+  background: var(--cream);
+  padding: 2.5rem 2rem;
+  transition: background 0.2s;
+}
+
+.service-card:hover { background: var(--white); }
+
+.service-num {
+  display: block;
+  font-family: var(--serif);
+  font-size: 2.5rem;
+  color: var(--taupe);
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.service-card h3 { color: var(--charcoal); }
+.service-card p { font-size: 0.92rem; }
+
+/* ---- QUOTE ---- */
+#quote {
+  padding: 6rem var(--gutter);
+  background: var(--warm);
+  text-align: center;
+}
+
+blockquote {
+  max-width: 680px;
+  margin: 0 auto;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  line-height: 1.5;
+  color: var(--charcoal);
+  font-weight: 300;
+}
+
+/* ---- CONTACT ---- */
+#contact {
+  padding: 6rem var(--gutter);
+  background: var(--white);
+}
+
+.contact-inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.contact-inner h2 { margin-bottom: 0.75rem; }
+.contact-sub { margin-bottom: 2.5rem; font-size: 1rem; }
+
+.contact-form { display: flex; flex-direction: column; gap: 1rem; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  background: var(--cream);
+  border: 1px solid var(--warm);
+  border-radius: 0;
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--charcoal);
+  outline: none;
+  transition: border-color 0.2s;
+  -webkit-appearance: none;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder { color: var(--taupe); }
+
+.contact-form input:focus,
+.contact-form textarea:focus { border-color: var(--gold); }
+
+.contact-form textarea { resize: vertical; }
+.contact-form .btn-primary { align-self: flex-start; margin-top: 0.5rem; }
+
+/* ---- FOOTER ---- */
+footer {
+  background: var(--charcoal);
+  padding: 3rem var(--gutter);
+  text-align: center;
+}
+
+footer .wordmark { color: var(--cream); font-size: 1.2rem; margin-bottom: 0.5rem; }
+.footer-sub { color: var(--taupe); font-size: 0.75rem; letter-spacing: 0.12em; margin-bottom: 1.5rem; }
+.footer-copy { color: var(--mid); font-size: 0.72rem; }
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 900px) {
+  .about-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .nav-links {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: var(--cream);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    z-index: 99;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a { font-size: 1rem; }
+  .nav-toggle { display: block; z-index: 101; }
+  .services-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+}
